@@ -29,7 +29,7 @@ Clone the repository into your home directory under the hidden folder `.dotfiles
 
 ```bash
 git clone [https://github.com/OyCris/Dotfiles.git](https://github.com/OyCris/Dotfiles.git) ~/.dotfiles
-cd ~/.dotfiles
+cd ~/.Dotfiles 
 
 # Make sure the script is executable (already done if you followed my guide)
 # chmod +x install.sh 
@@ -38,6 +38,13 @@ cd ~/.dotfiles
 ./install.sh
 
 And done!
+
+but if that doesnt work and gives an error do this
+
+mv Dotfiles ~/.dotfiles
+
+# Change directory into the new, correct location
+cd ~/.dotfiles
 
 ### ⚠️ Post-Installation: Wallpaper Troubleshooting (SUPER + W)
 
