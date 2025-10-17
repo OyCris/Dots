@@ -20,7 +20,7 @@ Before starting, please ensure you have the following packages installed on your
 * `starship` (For the terminal prompt) sudo pacman -S starship/ # go to fish config to add it in 
 * *And any specific fonts/icons you use (e.g., Nerd Fonts).* 
 
----
+
 -------------------------------------------------------------------------------------------------
 
 ### Step 1: Clone the Repository
@@ -39,9 +39,27 @@ cd ~/.dotfiles
 
 And done!
 
+### ⚠️ Post-Installation: Wallpaper Troubleshooting (SUPER + W)
 
+Due to a common timing issue with Hyprland and the `swww-daemon`, the wallpaper script might fail to run on initial login, resulting in the error: `"Socket file not found..."`.
 
+If your wallpaper does not load on startup, or the `SUPER + W` binding only works after manually running the script once, you may need to increase the startup delay.
 
+**How to Fix the Wallpaper Startup Delay:**
+
+1.  **Open** your main Hyprland configuration file: `~/.config/hypr/hyprland.conf` 
+2.  **Locate** the `### AUTOSTART ###` section.
+3.  **Find** the line that executes the wallpaper script and increase the `sleep` value.
+
+**Example of the line to change:**
+
+| Original (May Fail) | Recommended (More Reliable) |
+| :--- | :--- |
+| `exec-once = sleep 1 && ~/.config/hypr/scripts/swww-random.sh` | `exec-once = sleep 4 && ~/.config/hypr/scripts/swww-random.sh` |
+
+You may need to adjust the value (`4` seconds) higher or lower depending on the speed of your hardware. A value between `3` and `5` seconds is usually a safe and reliable choice.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 💀 Advanced Installation: Symlinking Manually (If You're Psycho)
 
 If you prefer to know exactly what the `install.sh` script is doing (or if you are a true Arch Linux user who distrusts automation), here are the individual commands to create the symlinks for your configs.
