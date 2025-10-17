@@ -20,7 +20,7 @@ Before starting, please ensure you have the following packages installed on your
 * `starship` (For the terminal prompt) sudo pacman -S starship/ # go to fish config to add it in 
 * *And any specific fonts/icons you use (e.g., Nerd Fonts).* 
 
-
+UNISTALL ALL CONFIGS BEFORE YOU INSTALL THIS ONE!!!!!
 -------------------------------------------------------------------------------------------------
 
 ### Step 1: Clone the Repository
@@ -28,8 +28,8 @@ Before starting, please ensure you have the following packages installed on your
 Clone the repository into your home directory under the hidden folder `.dotfiles`.
 
 ```bash
-git clone [https://github.com/OyCris/Dotfiles.git](https://github.com/OyCris/Dotfiles.git) ~/.dotfiles
-cd ~/.Dotfiles 
+git clone clone https://github.com/OyCris/Dotfiles.git
+cd ~/.dotfiles  
 
 # Make sure the script is executable (already done if you followed my guide)
 # chmod +x install.sh 
