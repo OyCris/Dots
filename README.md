@@ -1,4 +1,4 @@
-# Dotfiles
+# Dotfiles Binds Are At The Bottom 
 I developed from the ground up to achieve one thing: a fast, clean, and absolutely distraction-free environment.  If you enjoy a workspace that is keyboard-driven, ultra-dark, and ruthlessly efficient, you'll find what you're looking for here.
 
 
@@ -77,3 +77,18 @@ ln -s ~/.dotfiles/fish ~/.config/fish
 ln -s ~/.dotfiles/Wallpapers ~/Pictures/Wallpapers
 
 # -------------------------------------------------------------------------------------------------
+
+# Binds
+
+Function,Keybind,Command/Action,Notes
+Launch Terminal,SUPER + RETURN,exec $terminal,
+Launch App Menu,SUPER + Space,exec rofi -show drun,
+Close Window,SUPER + Q,killactive,
+Toggle Floating,SUPER + F,togglefloating,
+Full Screenshot,SUPER + SHIFT + S,exec grim,
+Capture Area,SUPER + S,"exec grim -g ""$(slurp)""",
+Next Workspace,SUPER + L,workspace e+1,
+Previous Workspace,SUPER + H,workspace e-1,
+Lock Screen,CTRL + ESC,exec swaylock,MAKE SURE to create a directory with the title ~/Pictures/Screenshots/ for captures to save correctly.
+Random Wallpaper	SUPER + W	exec $wallpaper_script	(Working on it) It might randomize the same image; just keep pressing until you get a new one.
+Switch Workspace,SUPER + [1-9],workspace [1-9],
