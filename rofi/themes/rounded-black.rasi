@@ -1,0 +1,47 @@
+/* Rounded Black Rofi Theme */
+
+window {
+    background: #121212FF;
+    border: 2px solid #3C3C3CFF;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    height: 200px;
+}
+
+listview {
+    lines: 10;
+    fixed-height: 0;
+    border-radius: 12px;
+    padding: 5px;
+    background: #1E1E1EFF;
+}
+
+element {
+    border-radius: 8px;
+    padding: 5px 10px;
+    background: transparent;
+    text-color: #EEEEEEFF;
+}
+
+element selected {
+    background: #3C3C3CFF;
+    text-color: #FFFFFFEE;
+}
+
+inputbar {
+    border-radius: 8px;
+    background: #1E1E1EFF;
+    text-color: #FFFFFFEE;
+    padding: 5px 10px;
+}
+
+scrollbar {
+    border-radius: 8px;
+    background: #3C3C3CFF;
+}
+
+message {
+    text-color: #FFFFFFEE;
+}
