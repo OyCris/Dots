@@ -114,3 +114,22 @@ CTRL & ESC to select witch area to be screen shotted MAKE SURE to create a direc
 Random Wallpaper	SUPER + W	exec $wallpaper_script	(Working on it) It might randomize the same image; just keep pressing until you get a new one.
 Switch Workspace,SUPER + [1-9],workspace [1-9],
 Super + M Log Out of Hyprland
+
+
+
+
+
+
+
+
+
+
+
+
+![Screenshots of my Dots](images/1760733229_grim.png)
+
+
+
+
+
+
