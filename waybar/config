@@ -1,75 +1,42 @@
 {
-    // POSITIONING
-    "layer": "top",
-    "position": "top",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
+    
+    "position": "top", 
 
-    // STYLE
-    "height": 30,
-    "spacing": 0,
-
-    // MODULES
+    
     "modules-left": [
-        "hyprland/workspaces",
-        "custom/spotify"
+        "hyprland/workspaces" 
     ],
     "modules-center": [
-        "clock",
-        "temperature"
+        "clock" 
     ],
     "modules-right": [
-        "tray",
-        "pulseaudio",
-        "battery"
+        "pulseaudio" 
     ],
 
-    // MODULE SETTINGS
-
-    // Workspaces (for Hyprland)
+    
+    
     "hyprland/workspaces": {
-        "format": "{icon}",
+        // Explicitly map workspace IDs to display names/icons
+        "format": "{name}", 
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "default": ""
+            // Explicitly set the names for the first two workspaces
+            "1": "1",
+            "2": "2",
+            // Fallback for default and active
+            "default": "",
+            "active": "",
+            "urgent": ""
         },
-        "on-click": "activate",
-        "persistent-workspaces": {
-             "*": 5
-        }
+        
+        // Let's try descending sort just in case it flips the bug
+        "sort-by": "number_desc",
+        
+        "on-click": "activate"
     },
 
-    // Clock - Date and Time (FIXED: Replaced ':' with '%' in format strings)
-    "clock": {
-        "timezone": "America/Denver", // CHANGE THIS TO YOUR TIMEZONE
-        "tooltip-format": "<big>{:%Y %B}</big>\n<small>{calendar}</small>",
-        "format": "{:%b %d | %H:%M}",
-        "format-alt": "{:%b %d %Y}",
-        "interval": 1
-    },
-
-    // Media/Spotify (FIXED: Added 2>/dev/null to silence "No players found" spam)
-    "custom/spotify": {
-        "format": " {}",
-        "interval": 1,
-        "exec": "playerctl metadata --format '{{ title }} - {{ artist }}' -f '{{ status }}' 2>/dev/null | grep Playing | sed 's/Playing//g' | head -c 50",
-        "tooltip": true
-    },
-
-    // System Tray (for app icons)
-    "tray": {
-        "spacing": 8
-    },
-
-    // Volume/Pulseaudio
+    
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "tooltip": false,
         "format-icons": {
             "default": "",
             "muted": ""
@@ -77,22 +44,20 @@
         "on-click": "pavucontrol"
     },
 
-    // Battery
-    "battery": {
-        "format": "{icon} {capacity}%",
-        "format-icons": {
-            "charging": "",
-            "full": "",
-            "default": ""
-        },
-        "tooltip-format": "{time}"
-    },
-
-    // Temperature (If you want it)
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
-        "interval": 5
+    
+    "clock": {
+        "format": " {:%H:%M}", 
+        "format-alt": " {:%a, %b %d}", 
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-icons": {
+                "month": "",
+                "year": ""
+            },
+            "weeks-pos": "right",
+            "weekdays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        }
     }
 }
