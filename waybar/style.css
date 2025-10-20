@@ -1,100 +1,63 @@
-/* ==================================== */
-/* 1. Color Palette (Semi-Transparent)  */
-/* ==================================== */
-@define-color background-opaque #1e1e2e;
-@define-color background-translucent rgba(30, 30, 46, 0.85); /* 85% opaque dark background for modules */
-@define-color foreground #cdd6f4;
-@define-color accent #89b4fa;
-@define-color surface #313244;
-@define-color transparent rgba(0,0,0,0);
+/* --- Global Styles --- */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    border: none;
+    color: white;
+    background: transparent;
+}
 
-
-/* ==================================== */
-/* 2. Main Bar Container (Invisible)    */
-/* ==================================== */
 window#waybar {
-    background-color: @transparent; /* The bar container is fully transparent */
-    margin: 8px 8px 0px 8px; /* Spaces the whole bar from the screen edge */
-    font-family: monospace;
-    font-size: 13px;
-    color: @foreground;
+    background-color: transparent;
+    border: none;
 }
 
-
-/* ==================================== */
-/* 3. Base Module Styling (The 'Pills') */
-/* ==================================== */
-#workspaces, #clock, #battery, #pulseaudio, #tray, #temperature, #custom-spotify {
-    /* Apply the new semi-transparent background to all pills */
-    background-color: @background-translucent;
-    border-radius: 12px;
-    padding: 4px 12px;
-    margin: 4px 6px; /* Separates each module "pill" */
-}
-
-
-/* ==================================== */
-/* 4. Module Specific Overrides         */
-/* ==================================== */
-
-/* Workspaces */
-#workspaces {
-    margin-left: 0; /* Align first pill to the left edge of the bar's margin */
-    /* Padding is already set by the base style, no need to override it here */
-}
-
-#workspaces button {
-    padding: 0 5px;
-    min-width: 0;
-    color: @foreground;
-    border-radius: 6px;
-    margin-right: 5px;
-}
-
-#workspaces button.active {
-    color: @accent;
-    background-color: @surface;
-}
-#workspaces button:hover {
-    background-color: @surface;
-}
-
-/* Spotify/Media (Left) */
-#custom-spotify {
-    color: @accent;
-    font-weight: bold;
-    font-style: italic;
-}
-
-/* Clock (Center) */
-#clock {
-    font-weight: bold;
-    /* Uses base background-color: @background-translucent */
-}
-
-/* System Tray (Right) */
-#tray {
-    margin-right: 0; /* Align last pill to the right edge of the bar's margin */
-}
-#tray > .icon {
-    margin-left: 0;
-    margin-right: 5px;
-}
-
-/* Volume/Pulseaudio */
+/* --- Standard Pill Styling (Clock and Audio) --- */
+/* These serve as the reference for the pill look and color */
+#clock,
 #pulseaudio {
-    color: @accent;
+    background-color: #000000; /* OLED black */
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin: 8px 12px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+
+    /* --- ADDED: White Edge Border --- */
+    border: 2px solid #ffffff;
 }
 
-/* Battery */
-#battery.charging {
-    color: #a6e3a1; /* Green */
-}
-#battery.warning {
-    color: #f38ba8; /* Red */
+/* --- Workspaces Container (Must be Transparent) --- */
+/* This container holds the buttons and should not have a background if the buttons are pills */
+#workspaces {
+    background-color: transparent;
+    padding: 0 0;
+    margin: 8px 0px 8px 12px; /* Margin to push it to the far left */
 }
 
-/* Temperature */
-#temperature {
-    /* Uses base background-color: @background-translucent */
+/* --- Workspaces Buttons (Each button is now a pill) --- */
+#workspaces button {
+    /* This style block makes each button match the clock/audio pill */
+    background-color: #000000; /* OLED black (Same color as requested) */
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin: 0px 6px; /* Adds space between individual workspace pills */
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+
+    /* Text styling */
+    color: white; /* Same text color as requested */
+    
+    /* --- ADDED: White Edge Border --- */
+    border: 2px solid #ffffff;
+}
+
+/* Focused workspace styling */
+#workspaces button.focused {
+    color: #00ffff; /* Your chosen color for the active workspace icon/text */
+    /* You can change the background if you want it to stand out more, e.g.: */
+    /* background-color: #1a1a1a; */
+}
+
+/* Urgent workspace styling */
+#workspaces button.urgent {
+    color: #ff5555;
 }
