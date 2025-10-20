@@ -1,0 +1,94 @@
+/* Rofi Theme: Final, Aggressive Black & White Fix */
+
+configuration {
+  modi: "dmenu"; 
+  show-icons: true;
+  font: "sans 12";
+}
+
+* {
+  /* --- Color Scheme: Aggressive Black & White --- */
+  base-color: #000000;         /* Pure Black Base */
+  text-color: #FFFFFF;         /* White Text (CRITICAL: Set globally) */
+  selected-bg: #1A1A1A;        /* Dark Grey for Selection (Darker than base for contrast) */
+
+  /* Aggressive global background override for any lingering defaults */
+  background-color: @base-color; 
+  
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  /* Set window background to pure black */
+  background-color: @base-color;
+  border: 0px; 
+  border-radius: 8px;
+  padding: 10px;
+  location: center;
+  anchor: center;
+  width: 90%;   
+  height: 45%;  
+}
+
+/* Inputbar is hidden */
+inputbar {
+  enabled: false; 
+  border: 0px;
+  padding: 0px;
+}
+prompt { enabled: false; }
+entry { enabled: false; }
+
+listview {
+  orientation: horizontal;
+  columns: 5; 
+  spacing: 15px; 
+  padding: 15px 0;
+  scrollbar: false; 
+}
+
+element {
+  /* Force element background to pure black, text is white */
+  background-color: @base-color; 
+  text-color: @text-color; 
+  padding: 8px;
+  border-radius: 8px;
+  orientation: vertical;
+  width: 170px; 
+  height: 200px;
+}
+
+element-icon {
+    /* CRITICAL FIX: Force the background behind the image to pure black */
+    background-color: @base-color;
+    size: 150px; 
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+element-text {
+  /* CRITICAL FIX: Ensure text background is pure black and text is white */
+  background-color: @base-color; 
+  text-color: @text-color; 
+  expand: true;
+  horizontal-align: 0.5; 
+  vertical-align: 0.5;
+  ellipsis: true; 
+}
+
+/* --- SELECTED ITEM STYLES --- */
+element selected {
+  /* Selected item background is slightly lighter black for highlight */
+  background-color: @selected-bg;
+  text-color: @text-color;
+  border: 2px;
+  border-color: @text-color;
+}
+
+element selected element-text {
+    /* Ensure text block background is the selected highlight color, text remains white */
+    background-color: @selected-bg; 
+    text-color: @text-color;
+}
